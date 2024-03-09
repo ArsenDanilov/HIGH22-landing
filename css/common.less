@@ -1,0 +1,259 @@
+// main: style.less
+
+@black: #0A0908;
+@graphite: #484848;
+@darkbeige: #978771;
+@beige: #E3D9D0;
+@lightbeige: #FCF7F1;
+@white: #Ffffff;
+
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    display: inline-flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    color: @black;
+    text-transform: uppercase;
+    overflow: hidden;
+    border: 0;
+    outline: none;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    transition-duration: .5s;
+
+    &_small {
+        padding: 10px 16px;
+    }
+
+    &_beige {
+        background-color: @beige;
+    }
+
+    &_white {
+        background-color: @white;
+    }
+
+    &_beige:hover,
+    &_white:hover {
+        background-color: @black;
+        color: @white;
+    }
+
+    &_transparent {
+        background-color: transparent;
+        border: 1px solid @beige;
+    }
+
+    &_transparent:hover {
+        background-color: @beige;
+    }
+
+    &_nav {
+        border: 0;
+        outline: none;
+        background-color: transparent;
+        transition: 0.3s;
+
+        &:hover {
+            color: @beige;
+        }
+    }
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &__card {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        text-decoration: none;
+        color: @black;
+        max-width: none;
+
+        &:hover .card-grid__detailed {
+            transform: translate(0, 0);
+        }
+
+        &:first-child {
+            display: flex;
+        }
+
+        &:nth-child(2) {
+            padding: 25px 0;
+            border-bottom: 1px solid @beige;
+        }
+
+        &:nth-child(3) {
+            padding: 25px 0;
+            border-bottom: 1px solid @beige;
+        }
+
+        &:nth-child(4) {
+            padding: 25px 0;
+            border-bottom: 1px solid @beige;
+        }
+
+        &:nth-child(5) {
+            padding: 25px 0;
+            border-bottom: 1px solid @beige;
+        }
+
+        &:nth-child(6) {
+            padding: 25px 0 0;
+        }
+    }
+
+    &__title {
+        letter-spacing: 1.44px;
+        line-height: 42px;
+    }
+
+    &__name {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__description {
+        letter-spacing: 0.32px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+    &__img {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__detailed {
+        display: none;
+    }
+
+    &__price {
+        display: inline-flex;
+        padding: 4px 10px;
+        align-items: flex-start;
+        gap: 10px;
+        background-color: @beige;
+    }
+
+    .our-services &__button {
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+
+}
+
+.partners-list { 
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        .our-services &__button {
+            width: auto;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .our-services &__button {
+            transform: translate(0, 0);
+        }
+
+        &__card {
+            max-width: 432px;
+            justify-content: flex-start;
+
+            &:first-child {
+                padding: 10px;
+            }
+
+            &:nth-child(2) {
+                padding: 0 25px 25px 25px;
+                border-left: 1px solid @beige;
+                border-right: 1px solid @beige;
+            }
+
+            &:nth-child(3) {
+                padding: 0 0 25px 25px;
+            }
+
+            &:nth-child(4) {
+                padding: 25px 25px 0 0;
+                border-top: 1px solid @beige;
+                border-right: 1px solid @beige;
+                border-bottom: 0;
+            }
+
+            &:nth-child(5) {
+                padding: 25px 25px 0 25px;
+                border-right: 1px solid @beige;
+                border-bottom: 0;
+            }
+
+            &:nth-child(6) {
+                padding: 25px 0 0 25px;
+            }
+        }
+
+        &__detailed {
+            display: flex;
+            padding: 16px 32px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: @black;
+            color: @white;
+            width: 415px;
+            position: absolute;
+            bottom: 0;
+            transition: 0.5s;
+            transform: translate(0, 100%);
+        }
+
+        &__description {
+            text-align: start;
+        }
+
+        .our-services &__button {
+            position: static;
+            width: auto;
+        }
+    }
+
+    .partners-list {
+        justify-content: space-between;
+    }
+}
